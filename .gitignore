@@ -17,3 +17,6 @@ db.*
 
 #keys
 secrets.json
+
+#Mac
+.DS_Store
