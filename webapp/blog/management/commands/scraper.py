@@ -3,6 +3,21 @@ import json
 from bs4 import BeautifulSoup
 from pprint import pprint
 
+from django.core.management.base import BaseCommand
+
+
+class Command(BaseCommand):
+
+    help = 'Update instagram-posts'
+
+    def handle(self, *args, **kwargs):
+        scraper = Scraper()
+        results = scraper.profile_page_recent_posts()
+        scraper.extract_useful_info(results[1])
+
+
+
+
 class Scraper:
 
     def __init__(self):
@@ -40,6 +55,11 @@ class Scraper:
         script_tag = body.find('script')
         raw_string = script_tag.text.strip().replace('window._sharedData =', '').replace(';', '')
         return json.loads(raw_string)
+    @staticmethod
+    def extract_2(html):
+        soup = BeautifulSoup(html, 'html.parser')
+        body = soup.find('body')
+        return body.prettify()
 
     def profile_page_metrics(self):
         # nice function but not needed for now
@@ -65,6 +85,7 @@ class Scraper:
         try:
             response = self.__request_url()
             json_data = self.extract_json_data(response)
+            #pprint(json_data)
             metrics = json_data['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']["edges"]
         except Exception as e:
             raise e
@@ -75,20 +96,11 @@ class Scraper:
                     results.append(node)
         return results
 
+
     def extract_useful_info(self, context):
         print(context.get('display_url'))
         print(context['edge_media_to_caption']['edges'][0]['node']['text'])
+        print(context['shortcode'])
         
 
         
-        
-
-def main():
-    scraper = Scraper()
-    results = scraper.profile_page_recent_posts()
-    
-    scraper.extract_useful_info(results[0])
-
-
-if __name__ == '__main__':
-    main()
