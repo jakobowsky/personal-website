@@ -5,6 +5,8 @@ from pprint import pprint
 
 from django.core.management.base import BaseCommand
 
+from blog.models import InstaPost
+
 
 class Command(BaseCommand):
 
@@ -13,9 +15,22 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         scraper = Scraper()
         results = scraper.profile_page_recent_posts()
-        scraper.extract_useful_info(results[1])
+        self.update_db(results)
 
+    def add_post(self, post):
+        _, created = InstaPost.objects.get_or_create(
+            link_id=post['shortcode'],
+            defaults={
+                'img': post['display_url'],
+                'description': post['edge_media_to_caption']['edges'][0]['node']['text'],
+                'url':  f"www.instagram.com/jakobowsky/p/{post['shortcode']}",
+            }
+        )
+        return created
 
+    def update_db(self, data):
+        for post in data:
+            print(self.add_post(post))
 
 
 class Scraper:
@@ -42,7 +57,8 @@ class Scraper:
                 headers=self.headers,
             ).text
         except requests.HTTPError:
-            raise requests.HTTPError('Received non 200 status code from Instagram')
+            raise requests.HTTPError(
+                'Received non 200 status code from Instagram')
         except requests.RequestException:
             raise requests.RequestException
         else:
@@ -53,8 +69,10 @@ class Scraper:
         soup = BeautifulSoup(html, 'html.parser')
         body = soup.find('body')
         script_tag = body.find('script')
-        raw_string = script_tag.text.strip().replace('window._sharedData =', '').replace(';', '')
+        raw_string = script_tag.text.strip().replace(
+            'window._sharedData =', '').replace(';', '')
         return json.loads(raw_string)
+
     @staticmethod
     def extract_2(html):
         soup = BeautifulSoup(html, 'html.parser')
@@ -79,13 +97,13 @@ class Scraper:
                     elif value:
                         results[key] = value
         return results
- 
+
     def profile_page_recent_posts(self):
         results = []
         try:
             response = self.__request_url()
             json_data = self.extract_json_data(response)
-            #pprint(json_data)
+            # pprint(json_data)
             metrics = json_data['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']["edges"]
         except Exception as e:
             raise e
@@ -95,12 +113,3 @@ class Scraper:
                 if node and isinstance(node, dict):
                     results.append(node)
         return results
-
-
-    def extract_useful_info(self, context):
-        print(context.get('display_url'))
-        print(context['edge_media_to_caption']['edges'][0]['node']['text'])
-        print(context['shortcode'])
-        
-
-        
