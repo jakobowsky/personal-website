@@ -12,3 +12,4 @@ def home(request):
         'test': '123'
     }
     return HttpResponse(template.render(context, request))
+    
