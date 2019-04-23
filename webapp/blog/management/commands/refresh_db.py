@@ -1,17 +1,11 @@
-import requests
-import json
-from bs4 import BeautifulSoup
-from pprint import pprint
-
 from django.core.management.base import BaseCommand
 
 from blog.models import InstaPost
 from blog.ig_scraper import Scraper
 
-
 class Command(BaseCommand):
 
-    help = 'Update instagram-posts'
+    help = 'Redownload db'
 
     def handle(self, *args, **kwargs):
         scraper = Scraper()
@@ -30,7 +24,6 @@ class Command(BaseCommand):
         return created
 
     def update_db(self, data):
+        InstaPost.objects.all().delete()
         for post in data:
             print(self.add_post(post))
-
-
