@@ -162,7 +162,6 @@
     </div>
   </section>
 
-  <img src="{{github.first.image.url}}">
 
   <!--/ Section Portfolio Star /-->
   <section id="work" class="portfolio-mf sect-pt4 route">
@@ -180,157 +179,36 @@
           </div>
         </div>
       </div>
+      {% for post in github|slice:'0:6'%}
+      {% if forloop.counter0|divisibleby:3 %}
       <div class="row">
+      {% endif %}
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{% static 'blog/img/work-1.jpg' %}" data-lightbox="gallery-mf">
+            <a href="{{post.image.url}}" data-lightbox="gallery-mf">
               <div class="work-img">
-                  {{ github.first.image.url }}
-                <img src="{{github.first.image.url}}" alt="" class="img-fluid">
+                <img src="{{post.image.url}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Lorem impsum dolor</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
+                  <div class="col-sm-12">
+                    <a href={{post.url}}>
+                      <p class="card-description">
+                          {{post.description|linebreaks|slice:'90'}}...
+                        </p>
+                      </a>
                   </div>
                 </div>
               </div>
             </a>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="{% static 'blog/img/work-2.jpg' %}" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="{% static 'blog/img/work-2.jpg' %}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Loreda Cuno Nere</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="{% static 'blog/img/work-3.jpg' %}" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="{% static 'blog/img/work-3.jpg' %}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Mavrito Lana Dere</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="{% static 'blog/img/work-4.jpg' %}" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="{% static 'blog/img/work-4.jpg' %}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Bindo Laro Cado</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="{% static 'blog/img/work-5.jpg' %}" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="{% static 'blog/img/work-5.jpg' %}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Lena Mado</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="{% static 'blog/img/work-6.jpg' %}" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="{% static 'blog/img/work-6.jpg' %}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Big Bang</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        
+        {% if forloop.counter|divisibleby:3 %}
       </div>
+      {% endif %}
+      {% endfor %}
     </div>
   </section>
-  <!--/ Section Portfolio End /-->
 
   
 
