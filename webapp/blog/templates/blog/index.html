@@ -38,7 +38,7 @@
   ======================================================= -->
 </head>
 
-<body id="page-top">
+<body id="page-top" style="background-image: url('{% static 'blog/img/dust.png' %}'">
 
   <!--/ Nav Star /-->
   <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
@@ -75,7 +75,7 @@
 
   <!--/ Intro Skew Star /-->
   
-  <div id="home" class="intro route bg-image" style="background-image: url('{% static 'blog/img/intro-bg.jpg' %}')">
+  <div id="home" class="intro route bg-image" style="background-image: url('{% static 'blog/img/gifbg.gif' %}')">
     <div class="overlay-itro"></div>
     <div class="intro-content display-table">
       <div class="table-cell">
@@ -101,11 +101,13 @@
                   <div class="col-sm-6 col-md-5">
                     <div class="about-img">
                         
-                      <img src="{% static 'blog/img/testimonial-2.jpg' %}" class="img-fluid rounded b-shadow-a" alt="">
+                      <img src="{% static 'blog/img/avatar.jpg' %}" class="img-fluid rounded b-shadow-a" alt="">
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-7">
                     <div class="about-info">
+                      <p></p>
+                      <p></p>
                       <p><span class="title-s">Name: </span> <span>Jakob Wolitzki</span></p>
                       <p><span class="title-s">Profile: </span> <span>Backend Developer</span></p>
                       <p><span class="title-s">Email: </span> <span>jakob.wotlizki@gmail.com</span></p>
@@ -184,10 +186,10 @@
       <div class="row">
       {% endif %}
         <div class="col-md-4" style="margin-bottom:3rem;">
-          <div class="work-box" style="height:100%;margin-bottom:0!important">
+          <div class="work-box border border-secondary" style="height:100%;margin-bottom:0!important">
             <a href="{{post.image.url}}" data-lightbox="gallery-mf">
               <div class="work-img">
-                <img src="{{post.image.url}}" alt="" class="img-fluid" style="height: 170px;object-fit: cover; width:100%">
+                <img src="{{post.image.url}}" alt="" class="img-fluid" style="height: 220px;object-fit: cover; width:100%">
               </div>
               <div class="work-content">
                 <div class="row">
@@ -235,7 +237,7 @@
         <div class="row">
         {% endif %}
         <div class="col-md-4" style="margin-bottom:3rem;">
-          <div class="card card-blog" style="height:100%;margin-bottom:0!important">
+          <div class="card card-blog border border-secondary" style="height:100%;margin-bottom:0!important">
             <div class="card-img">        
               <a href="http://{{post.url}}"><img src="{{ post.img }}" alt="" class="img-fluid"></a>
               
