@@ -183,11 +183,11 @@
       {% if forloop.counter0|divisibleby:3 %}
       <div class="row">
       {% endif %}
-        <div class="col-md-4">
-          <div class="work-box">
+        <div class="col-md-4" style="margin-bottom:3rem;">
+          <div class="work-box" style="height:100%;margin-bottom:0!important">
             <a href="{{post.image.url}}" data-lightbox="gallery-mf">
               <div class="work-img">
-                <img src="{{post.image.url}}" alt="" class="img-fluid">
+                <img src="{{post.image.url}}" alt="" class="img-fluid" style="height: 170px;object-fit: cover; width:100%">
               </div>
               <div class="work-content">
                 <div class="row">
@@ -234,8 +234,8 @@
         {% if forloop.counter0|divisibleby:3 %}
         <div class="row">
         {% endif %}
-        <div class="col-md-4">
-          <div class="card card-blog">
+        <div class="col-md-4" style="margin-bottom:3rem;">
+          <div class="card card-blog" style="height:100%;margin-bottom:0!important">
             <div class="card-img">        
               <a href="http://{{post.url}}"><img src="{{ post.img }}" alt="" class="img-fluid"></a>
               
