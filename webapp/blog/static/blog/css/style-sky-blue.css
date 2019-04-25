@@ -100,7 +100,7 @@ a:hover {
   padding: 0;
   height: 100%;
   width: 100%;
-  opacity: .7;
+  opacity: .2;
 }
 
 .paralax-mf {
@@ -481,7 +481,7 @@ a:hover {
 }
 
 .navbar-b.navbar-reduce .nav-link {
-  color: #48abec;
+  color: #494949;
 }
 
 .navbar-b.navbar-reduce .nav-link:before {
@@ -489,18 +489,18 @@ a:hover {
 }
 
 .navbar-b.navbar-reduce .nav-link:hover {
-  color: #48abec;
+  color: #494949;
 }
 
 .navbar-b.navbar-reduce .show > .nav-link,
 .navbar-b.navbar-reduce .active > .nav-link,
 .navbar-b.navbar-reduce .nav-link.show,
 .navbar-b.navbar-reduce .nav-link.active {
-  color: #48abec;
+  color: #494949;
 }
 
 .navbar-b.navbar-reduce .navbar-brand {
-  color: #48abec;
+  color: #494949;
 }
 
 .navbar-b.navbar-reduce .navbar-toggler span {
