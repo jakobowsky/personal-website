@@ -7,7 +7,7 @@
 /.#~
 .vscode*
 
-#venv
+venv/
 Pipfile
 Pipfile.lock
 
