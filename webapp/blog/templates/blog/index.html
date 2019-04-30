@@ -39,7 +39,7 @@
 </head>
 
 <style>
-  .fa {
+  #contact .fa {
   padding: 20px;
   font-size: 100px;
   width: 75px;
@@ -85,7 +85,7 @@
 
   <!--/ Intro Skew Star /-->
   
-  <div id="home" class="intro route bg-image" style="background-image: url('{% static 'blog/img/g1.gif' %}')">
+  <div id="home" class="intro route bg-image" style="background-image: url('{% static 'blog/img/g1.gif' %}'); background-size: cover;">
     <div class="overlay-itro"></div>
     <div class="intro-content display-table">
       <div class="table-cell">
@@ -109,7 +109,7 @@
               <div class="col-md-6 text-center">
                 <div class="row">            
                   <div class="about-img">                  
-                    <img src="{% static 'blog/img/avatar.jpg' %}" class="img-fluid rounded b-shadow-a" alt="">
+                    <img src="{% static 'blog/img/avatar.jpg' %}" class="img-fluid rounded b-shadow-a" alt="" style="margin-right: 10px;width: calc(100% - 20px);">
                   </div>
                 </div>
               </div>
@@ -230,7 +230,7 @@
 
   <!--/ Section Contact-Footer Star /-->
   
-  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image:url('{% static 'blog/img/contact.jpeg' %}')">
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image:url('{% static 'blog/img/contact.jpeg' %}'); background-size: cover;">
     <div class="overlay-mf"></div>
     <div class="container">
       <div class="row">
@@ -248,13 +248,13 @@
                 </div>
                 <div class="row">
                 <div class="col-md-4 text-center">
-                  <a href="https://www.instagram.com/jakobowsky/" class="fa fa-instagram"></a>
+                  <a href="https://www.instagram.com/jakobowsky/" class="fa fa-instagram" style="width:160px"></a>
                 </div>
                 <div class="col-md-4 text-center">
-                  <a href="https://www.linkedin.com/in/jakob-wolitzki/" class="fa fa-linkedin"></a>
+                  <a href="https://www.linkedin.com/in/jakob-wolitzki/" class="fa fa-linkedin" style="width:160px"></a>
                 </div>
                 <div class="col-md-4 text-center">
-                  <a href="https://github.com/jakobowsky" class="fa fa-github"></a>
+                  <a href="https://github.com/jakobowsky" class="fa fa-github" style="width:160px"></a>
                 </div>
               </div>
           </div>
