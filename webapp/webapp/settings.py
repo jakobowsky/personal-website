@@ -45,6 +45,7 @@ ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
 
 INSTALLED_APPS = [
     'blog',
+    'kronos',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
